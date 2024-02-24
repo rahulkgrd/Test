@@ -7,15 +7,15 @@ public class BinaryTree {
     //     2    3
     // 4   5  6   7
     public static void main(String[] args) {
-Node binaryTree = new Node(1,new Node(2,new Node(4),new Node(5)),new Node(3,new Node(6),new Node(7)));
-printLevelOrder(binaryTree);
+        Node binaryTree = new Node(1, new Node(2, new Node(4), new Node(5)), new Node(3, new Node(6), new Node(7)));
+        printLevelOrder(binaryTree);
     }
-    static class Node{
+    static class Node {
         Node left;
         int data;
         Node right;
 
-        public Node( int data,Node left, Node right) {
+        public Node(int data, Node left, Node right) {
             this.left = left;
             this.data = data;
             this.right = right;
@@ -49,21 +49,22 @@ printLevelOrder(binaryTree);
             this.right = right;
         }
     }
-    static void printLevelOrder(Node root){
-        if (root==null)
+
+    static void printLevelOrder(Node root) {
+        if (root == null)
             return;
-        Queue<Node> q=new LinkedList<>();
+        Queue<Node> q = new LinkedList<>();
         q.add(root);
         q.add(null);
-        while (!q.isEmpty()){
+        while (!q.isEmpty()) {
             Node tmp = q.poll();
-            if (tmp!=null){
+            if (tmp != null) {
                 System.out.print(tmp.data + " ");
-                if (tmp.left!=null)
+                if (tmp.left != null)
                     q.add(tmp.left);
-                if (tmp.right!=null)
+                if (tmp.right != null)
                     q.add(tmp.right);
-            }else {
+            } else {
                 System.out.println();
                 if (!q.isEmpty())
                     q.add(null);
